@@ -132,4 +132,5 @@
   {/each}
 
   <button on:click={adicionarCaixa}>Adicionar</button>
+  <button on:click={() => caixas = []}>Limpar Caixas</button>
 </div>
