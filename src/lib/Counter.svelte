@@ -55,12 +55,11 @@
   <p>Qual saldo deseja gastar?</p>
   <div class="saldo">
     <input
-      type="number"
-      inputmode="numeric"
-      pattern="[0-9]*"
-      placeholder="Valor Unitário"
+      type="text"
+      inputmode="decimal"
+      pattern="[0-9]*[.,]?[0-9]*"
+      placeholder="Valor Unitário"
       bind:value={saldo}
-      
     />
 
 
