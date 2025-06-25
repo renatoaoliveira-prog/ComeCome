@@ -1,33 +1,26 @@
 <script>
-  import { onMount } from 'svelte';
   import { nomeMercado } from './store.js';
-  import { get } from 'svelte/store';
 
   export let valorGasto;
 
+  // Reatividade automática ao valor da store
+  $: mercado = $nomeMercado;
 
-
-  let mercado = '';
-
-  // Atualiza mercado ao montar
-  onMount(() => {
-    mercado = get(nomeMercado); // pega valor atual
-    nomeMercado.subscribe((value) => mercado = value); // escuta futuras mudanças
-  });
-
-	$: valor = valorGasto;
-  
   let datahora = new Date().toLocaleString();
-  
-	function compartilharViaWhatsApp() {
-		const telefone = ''; // opcional: você pode deixar em branco e deixar o usuário escolher o contato
-		const texto = encodeURIComponent(
-      `Data e Hora: ${datahora} foi gasto o valor de ${valor} no ${mercado}`
+
+  function compartilharViaWhatsApp() {
+    const telefone = ''; // pode deixar vazio para abrir o app com lista de contatos
+    const texto = encodeURIComponent(
+      `Data e Hora: ${datahora} foi gasto o valor de ${valorGasto} no ${mercado}`
     );
-		const url = `https://wa.me/${telefone}?text=Compras no mercado ${mercado}`;
-		window.open(url, '_blank');
-	}
+    const url = `https://wa.me/${telefone}?text=${texto}`;
+    window.open(url, '_blank');
+  }
 </script>
-<button on:click={compartilharViaWhatsApp}>
+
+<button
+  class="btn btn-primary px-4 py-2 rounded-3 shadow-sm btn-custom"
+  on:click={compartilharViaWhatsApp}
+>
   Compartilhar no WhatsApp
 </button>
