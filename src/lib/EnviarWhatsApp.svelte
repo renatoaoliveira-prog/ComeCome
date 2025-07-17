@@ -6,21 +6,54 @@
   // Reatividade automática ao valor da store
   $: mercado = $nomeMercado;
 
-  let datahora = new Date().toLocaleString();
-
   function compartilharViaWhatsApp() {
-    const telefone = ''; // pode deixar vazio para abrir o app com lista de contatos
+    // Captura a data e hora exata no momento do clique, para maior precisão
+    const datahoraAtual = new Date().toLocaleString('pt-PT', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit'
+      // second: '2-digit' // Descomente se quiser segundos
+    });
+
+    const telefone = ''; // Deixar vazio para abrir a lista de contatos do WhatsApp
+
     const texto = encodeURIComponent(
-      `Data e Hora: ${datahora} foi gasto o valor de ${valorGasto} no ${mercado}`
+      `🎉 Detalhes do Gasto 🎉\n\n` +
+      `Data: ${datahoraAtual}\n` +
+      `Valor Gasto: R$ ${valorGasto}\n` +
+      `Local: ${mercado || 'Não especificado'}\n\n` +
+      `Economize com PoupaPoupa do Renatinho! 💸`
     );
+
     const url = `https://wa.me/${telefone}?text=${texto}`;
     window.open(url, '_blank');
   }
 </script>
 
 <button
-  class="btn btn-primary px-4 py-2 rounded-3 shadow-sm btn-custom"
+  class="btn btn-success px-4 py-2 rounded-3 shadow-sm"
   on:click={compartilharViaWhatsApp}
+  aria-label="Compartilhar detalhes do gasto no WhatsApp"
 >
   Compartilhar no WhatsApp
 </button>
+
+<style>
+  /* Adicionando um estilo para o botão de WhatsApp, talvez um verde mais icônico */
+  .btn-success {
+    background-color: #25d366; /* Verde icônico do WhatsApp */
+    border-color: #25d366;
+    color: white;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .btn-success:hover {
+    background-color: #1da851; /* Tom mais escuro no hover */
+    border-color: #1da851;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+</style>
