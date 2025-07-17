@@ -19,6 +19,8 @@
     }
   }
 
+  let saldoIndefinido = false;
+
   // Cálculo reativo do valor gasto total
   $: valorGasto = caixas.reduce(
     (total, caixa) => total + caixa.quantidade * caixa.valorUnitario,
@@ -52,10 +54,11 @@
     <p class="lead text-center text-muted">Gerencie seus gastos de forma simples e rápida.</p>
     <hr />
 
-    <div class="mb-3">
+    {#if !saldoIndefinido}
+    <div class="mb-3" id="saldoSection">
       <label for="saldoInput" class="form-label fs-5">Qual saldo você tem para gastar?</label>
       <div class="input-group">
-        <span class="input-group-text">R$</span>
+        <span class="input-group-text">€</span>
         <input
           id="saldoInput"
           type="text"
@@ -72,28 +75,44 @@
         >
           Zerar Saldo
         </button>
+        <button
+          class="btn btn-outline-danger"
+          aria-label="Não sei o saldo"
+          on:click={() => {
+            saldoIndefinido = true;
+            saldo = "";
+          }}
+        >
+          Não sei
+        </button>
       </div>
     </div>
+    {/if}
 
     <div class="d-flex justify-content-around mt-4 text-center resumo-valores">
+      {#if !saldoIndefinido}
       <div>
         <p class="mb-1 text-muted">Saldo Atual:</p>
         <p class="fs-4 fw-bold">R$ {saldoNumerico.toFixed(2)}</p>
       </div>
+      {/if}
       <div>
         <p class="mb-1 text-muted">Valor Gasto:</p>
         <p class="fs-4 fw-bold">R$ {valorGasto.toFixed(2)}</p>
       </div>
-      <div>
-        <p class="mb-1 text-muted">Restante:</p>
-        {#if saldoNumerico <= 0}
-          <p class="fs-4 fw-bold text-muted">R$ {restante.toFixed(2)}</p>
-        {:else if restante < 0}
-          <p class="fs-4 fw-bold text-danger animate__animated animate__shakeX">R$ {restante.toFixed(2)}</p>
-        {:else}
-          <p class="fs-4 fw-bold text-success animate__animated animate__pulse">R$ {restante.toFixed(2)}</p>
-        {/if}
-      </div>
+      
+      {#if !saldoIndefinido}
+        <div id="saldoSection">
+          <p class="mb-1 text-muted">Restante:</p>
+          {#if saldoNumerico <= 0}
+            <p class="fs-4 fw-bold text-muted">R$ {restante.toFixed(2)}</p>
+          {:else if restante < 0}
+            <p class="fs-4 fw-bold text-danger animate__animated animate__shakeX">R$ {restante.toFixed(2)}</p>
+          {:else}
+            <p class="fs-4 fw-bold text-success animate__animated animate__pulse">R$ {restante.toFixed(2)}</p>
+          {/if}
+        </div>
+      {/if}
     </div>
   </div>
 

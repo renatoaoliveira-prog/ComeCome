@@ -20,7 +20,7 @@
   </div>
 
   <footer class="text-center mt-5 text-muted">
-    <p>&copy; {new Date().getFullYear()} PoupaPoupa. Todos os direitos reservados.</p>
+    <p>&copy; {new Date().getFullYear()} PoupaPoupa. Todos os direitos reservados ao Renatinho.</p>
   </footer>
 </main>
 
