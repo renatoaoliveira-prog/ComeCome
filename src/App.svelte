@@ -1,10 +1,40 @@
 <script>
-  import HeadMeta from './lib/HeadMeta.svelte'; // Opcional para SEO
+  //import HeadMeta from './lib/HeadMeta.svelte'; // Opcional para SEO
   import Mercados from './lib/Mercados.svelte';
   import Counter from './lib/Counter.svelte';
+  //import SwiperComponent from './lib/SwiperComponent.svelte';
+  import Teste from './lib/Teste.svelte';
+
+  // let options = {
+  //   slidesPerView: 1,
+  //   spaceBetween: 10,
+  //   pagination: {
+  //     el: '.swiper-pagination',
+  //     clickable: true,
+  //   },
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev',
+  //   },
+  // };
+
+  
+
+  
 </script>
 
-<HeadMeta /> <main class="container py-4">
+<!-- <Teste name="ola" /> -->
+
+<!-- <SwiperComponent {options}>
+  <div class="swiper-slide">Slide 1</div>
+  <div class="swiper-slide">Slide 2</div>
+  <div class="swiper-slide">Slide 3</div>
+  <div class="swiper-slide">Slide 4</div>
+</SwiperComponent> -->
+
+
+<!-- <HeadMeta />  -->
+<main class="container py-4">
   <div class="text-center mb-5">
     <h1 class="display-4 fw-bold text-primary animate__animated animate__fadeInDown">
       💰 PoupaPoupa 💸
