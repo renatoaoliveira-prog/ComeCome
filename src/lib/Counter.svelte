@@ -48,7 +48,7 @@
   }
 </script>
 
-<div class="container my-4">
+<div class="">
   <div class="card shadow-sm p-4 mb-4 topo-card">
     <h1 class="card-title text-center mb-3">Calculadora de Gastos 💰</h1>
     <p class="lead text-center text-muted">Gerencie seus gastos de forma simples e rápida.</p>

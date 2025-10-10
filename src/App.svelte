@@ -34,19 +34,19 @@
 
 
 <!-- <HeadMeta />  -->
-<main class="container py-4">
-  <div class="text-center mb-5">
+<main class="">
+   <!--<div class="text-center mb-5">
     <h1 class="display-4 fw-bold text-primary animate__animated animate__fadeInDown">
       💰 PoupaPoupa 💸
     </h1>
     <p class="lead text-muted animate__animated animate__fadeInUp">
       Gerencie seus gastos de forma inteligente e economize!
     </p>
-  </div>
+  </div> -->
 
   <div class="card shadow-lg p-md-5 p-3 rounded-4 animate__animated animate__zoomIn">
-    <Mercados />
-    <hr class="my-4" /> <Counter />
+      <Counter />
+      <Mercados />
   </div>
 
   <footer class="text-center mt-5 text-muted">
