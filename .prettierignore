@@ -1,0 +1,17 @@
+# Ignore artifacts:
+build
+dist
+.svelte-kit
+.vercel
+.netlify
+.env
+.env.*
+package-lock.json
+/node_modules
+
+# Ignore editor config:
+.vscode/*
+
+# Ignore Svelte artifacts
+*.svelte-kit
+.DS_Store

@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import { nomeMercado } from './store.js';
+  import { nomeMercado } from '../stores/store.js';
 
   let mercadoSelecionado = '';
   // Lista de mercados mais comuns

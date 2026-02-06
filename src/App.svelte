@@ -1,9 +1,6 @@
 <script>
-  //import HeadMeta from './lib/HeadMeta.svelte'; // Opcional para SEO
-  import Mercados from './lib/Mercados.svelte';
-  import Counter from './lib/Counter.svelte';
-  //import SwiperComponent from './lib/SwiperComponent.svelte';
-  import Teste from './lib/Teste.svelte';
+  import Mercados from './lib/components/Mercados.svelte';
+  import Counter from './lib/components/Counter.svelte';
 
   // let options = {
   //   slidesPerView: 1,
@@ -23,17 +20,6 @@
   
 </script>
 
-<!-- <Teste name="ola" /> -->
-
-<!-- <SwiperComponent {options}>
-  <div class="swiper-slide">Slide 1</div>
-  <div class="swiper-slide">Slide 2</div>
-  <div class="swiper-slide">Slide 3</div>
-  <div class="swiper-slide">Slide 4</div>
-</SwiperComponent> -->
-
-
-<!-- <HeadMeta />  -->
 <main class="">
    <!--<div class="text-center mb-5">
     <h1 class="display-4 fw-bold text-primary animate__animated animate__fadeInDown">

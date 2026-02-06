@@ -1,5 +1,5 @@
 <script>
-  import { nomeMercado } from './store.js';
+  import { nomeMercado } from '../stores/store.js';
 
   export let valorGasto;
 
@@ -28,7 +28,14 @@
     );
 
     const url = `https://wa.me/${telefone}?text=${texto}`;
-    window.open(url, '_blank');
+    const link = document.createElement('a');
+    link.href = url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer'; // Para segurança
+    link.style.display = 'none'; // Esconder o link
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
 </script>
 
